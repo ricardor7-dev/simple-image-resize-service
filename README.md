@@ -85,3 +85,13 @@ so a request that checks registry → cache never misses it.
 
 - Failed images are not cached; a later request for the same URL retries it.
 - In sync mode, the URLs of one request are processed one after another.
+
+## Next steps: deployment and infrastructure
+
+A small warm-up for learning Linux, Ansible and Terraform on a single service:
+
+- [ ] Dockerfile and a `docker compose` file for the service
+- [ ] Deploy by hand on a small Linux VM: SSH keys only, firewall, run as a systemd service, read logs with `journalctl`
+- [ ] Ansible playbook that installs Docker (or the binary plus a systemd unit) and deploys the service; run it twice to check idempotency
+- [ ] Terraform for the VM and its security group on AWS, so the setup can be rebuilt from scratch
+- [ ] Basic `/metrics` endpoint (requests, resize latency, cache hits) scraped by Prometheus
